@@ -53,3 +53,13 @@ desc 'Retrieves the current schema version number'
 task "db:version" do
   puts "Current version: #{ActiveRecord::Migrator.current_version}"
 end
+
+
+desc 'Adds some sample data to the database'
+task "db:populate" do
+  # Contacts
+  20.times do |x|
+    Contact.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.phone_number, email: Faker::Internet.email)
+  end
+end
+
