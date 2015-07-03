@@ -1,10 +1,10 @@
-Sinatra
+Sinatra API 
+Contact List Application
 =============
 
-Brought to you by Lighthouse Labs
+Creating a Sinatra API, then connecting the frontend with Javascript.
 
-## Getting Started
+Technologies Used:
 
-1. `bundle install`
-2. `shotgun -p 3000 -o 0.0.0.0`
-3. Visit `http://localhost:3000/` in your browser
+    Ruby, Sinatra
+    Javascript, JQuery
