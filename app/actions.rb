@@ -20,8 +20,14 @@ end
 post '/contacts' do
   content_type :json
 
-  new_contact = "#{params[:first_name]}"
-  return false if /.*[<scri].*/.match(new_contact)
+  scriptChecker = []
+  scriptChecker << params[:first_name]
+  scriptChecker << params[:last_name]
+  scriptChecker << params[:phone_number]
+  scriptChecker << params[:email]
+
+  return false if /^.*<script.*/.match(scriptChecker.join(" "))
+
 
   new_contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name], phone_number: params[:phone_number], email: params[:email])
   if new_contact.save
