@@ -19,6 +19,10 @@ end
 
 post '/contacts' do
   content_type :json
+
+  new_contact = "#{params[:first_name]}"
+  return false if /.*[<scri].*/.match(new_contact)
+
   new_contact = Contact.new(first_name: params[:first_name], last_name: params[:last_name], phone_number: params[:phone_number], email: params[:email])
   if new_contact.save
     return new_contact.to_json
@@ -31,17 +35,3 @@ end
 delete '/contacts/:id' do
   Contact.find(params[:id]).destroy
 end
-
-get '/search' do
-  content_type :json
-
-  @contacts ||= Contact.all
-
-  params[:terms].split(' ').each do |term|
-    @contacts = Contact.where("first_name LIKE ? or last_name LIKE ? or phone_number LIKE ? or email LIKE ?", "%#{term}%", "%#{term}%", "%#{term}%", "%#{term}%")
-  end
-
-  @contacts = Contact.where(@contacts.where_values.join(" OR "))
-  @contacts.to_json
-
-end 

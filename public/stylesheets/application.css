@@ -8,13 +8,24 @@ stonrg{
 /** Contact List **/
 .contact-list{
   background: #f9f9f9;
-  height: 1000px;
   overflow: scroll;
   border:1px solid #ccc;
   padding:0px !important;
 }
 ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {  
    color: #ccc;  
+}
+::-webkit-scrollbar {
+    -webkit-appearance: true !important;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+::-webkit-scrollbar-corner {
+    background: none;
 }
 .search-input .search{
   margin-top:30px;
@@ -56,7 +67,6 @@ stonrg{
 
 /** Contact Info **/
 .contact-info{
-  height: 1000px;
   border-right:1px solid #ccc;
 }
 .contact-info h1{
