@@ -7,4 +7,4 @@ Creating a Sinatra API, then connecting the API to the frontend with Javascript.
 Technologies Used:
 
     Ruby, Sinatra
-    Javascript, JQuery
+    Javascript, JQuery, AJAX
